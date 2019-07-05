@@ -1,0 +1,21 @@
+html(lang="ko")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Workspace
+    body
+        div.wrapper
+            div.fileState
+                div.appendFileBox
+                    form(action="",method='post' enctype="multipart/form-data")
+                        span zip, tar 파일을 지원합니다.
+                        input(type="file", accept=".zip, .tar", name="file" required)#file
+                        input(type="submit", value="업로드")#submit
+                div.listBox
+                    span "여기는 폴더 구조 자리"
+                    //폴더=ul, 파일= li
+            div.editor
+                span "여기는 에디터 자리"
+
+                
