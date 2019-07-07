@@ -2,9 +2,10 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 import unzip from "unzipper";
+import { Directory, readInDir } from "./util";
 
 const inputFilePath = "public/";
-const workspace = "workspace/";
+const workspace = "workspace";
 
 export const uploadMiddleWare = multer({
   storage: multer.diskStorage({
@@ -42,8 +43,8 @@ export const unZip = (req, res, next) => {
 
 export const getWorkspace = (req, res, next) => {
   fs.unlinkSync(req.file.path);
-  const data = fs.readdirSync(workspace, { withFileTypes: true });
-  console.log(data);
+  const dir = new Directory(workspace, "");
+  readInDir(dir);
 
-  res.redirect("/");
+  res.render("home", { dir });
 };

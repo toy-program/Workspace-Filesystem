@@ -7,6 +7,8 @@
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.0",
     "@babel/node": "^7.5.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.0",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
@@ -18,9 +20,11 @@
     "unzip": "^0.1.11",
     "unzipper": "^0.10.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/plugin-transform-classes": "^7.4.4"
+  },
   "scripts": {
-    "start": "nodemon --exec babel-node app.js",
+    "start": "nodemon --exec babel-node app.js --ignore workspace/ --ignore 'public/'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
